@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yxcr.mapper.ClassIdtMapper">
+
+    <resultMap id="BaseResultMap" type="com.yxcr.pojo.ClassIdt">
+            <id property="bh" column="bh" jdbcType="BIGINT"/>
+            <result property="cdId" column="cd_id" jdbcType="INTEGER"/>
+            <result property="cdName" column="cd_name" jdbcType="VARCHAR"/>
+            <result property="cdIndex" column="cd_index" jdbcType="INTEGER"/>
+            <result property="schId" column="sch_id" jdbcType="CHAR"/>
+            <result property="linkman" column="linkman" jdbcType="VARCHAR"/>
+            <result property="telephone" column="telephone" jdbcType="VARCHAR"/>
+            <result property="sfyx" column="sfyx" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        bh,cd_id,cd_name,
+        cd_index,sch_id,linkman,
+        telephone,sfyx
+    </sql>
+    <select id="selectByCdId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from class_idt
+        where
+        cd_id = #{cdId,jdbcType=NUMERIC}
+    </select>
+</mapper>

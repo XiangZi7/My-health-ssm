@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yxcr.mapper.NotificationIsMapper">
+
+    <resultMap id="BaseResultMap" type="com.yxcr.pojo.NotificationIs">
+            <id property="bh" column="bh" jdbcType="BIGINT"/>
+            <result property="bt" column="bt" jdbcType="VARCHAR"/>
+            <result property="intro" column="intro" jdbcType="VARCHAR"/>
+            <result property="nr" column="nr" jdbcType="VARCHAR"/>
+            <result property="xxlx" column="xxlx" jdbcType="CHAR"/>
+            <result property="sffb" column="sffb" jdbcType="CHAR"/>
+            <result property="fbrq" column="fbrq" jdbcType="CHAR"/>
+            <result property="sfyx" column="sfyx" jdbcType="CHAR"/>
+            <result property="djr" column="djr" jdbcType="VARCHAR"/>
+            <result property="djrq" column="djrq" jdbcType="CHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        bh,bt,intro,
+        nr,xxlx,sffb,
+        fbrq,sfyx,djr,
+        djrq
+    </sql>
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yxcr.mapper.ManagementInfoMapper">
+
+    <resultMap id="BaseResultMap" type="com.yxcr.pojo.ManagementInfo">
+            <id property="bh" column="bh" jdbcType="BIGINT"/>
+            <result property="xm" column="xm" jdbcType="VARCHAR"/>
+            <result property="zw" column="zw" jdbcType="VARCHAR"/>
+            <result property="yhjb" column="yhjb" jdbcType="CHAR"/>
+            <result property="yhqx" column="yhqx" jdbcType="CHAR"/>
+            <result property="djrq" column="djrq" jdbcType="CHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        bh,xm,zw,
+        yhjb,yhqx,djrq
+    </sql>
+    <select id="selectByZwid" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from management_info
+        where
+        zwid = #{zwid,jdbcType=NUMERIC}
+    </select>
+</mapper>

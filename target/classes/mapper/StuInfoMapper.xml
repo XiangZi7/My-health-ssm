@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yxcr.mapper.StuInfoMapper">
+
+    <resultMap id="BaseResultMap" type="com.yxcr.pojo.StuInfo">
+            <id property="bh" column="bh" jdbcType="BIGINT"/>
+            <id property="sid" column="sid" jdbcType="VARCHAR"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="school" column="school" jdbcType="VARCHAR"/>
+            <result property="rxnf" column="rxnf" jdbcType="VARCHAR"/>
+            <result property="myclass" column="myclass" jdbcType="VARCHAR"/>
+            <result property="national" column="national" jdbcType="VARCHAR"/>
+            <result property="sex" column="sex" jdbcType="CHAR"/>
+            <result property="birthday" column="birthday" jdbcType="VARCHAR"/>
+            <result property="lsjy" column="lsjy" jdbcType="VARCHAR"/>
+            <result property="mother" column="mother" jdbcType="VARCHAR"/>
+            <result property="father" column="father" jdbcType="VARCHAR"/>
+            <result property="telephone" column="telephone" jdbcType="VARCHAR"/>
+            <result property="telephone1" column="telephone1" jdbcType="VARCHAR"/>
+            <result property="address" column="address" jdbcType="VARCHAR"/>
+            <result property="djr" column="djr" jdbcType="VARCHAR"/>
+            <result property="djrq" column="djrq" jdbcType="VARCHAR"/>
+            <result property="sfyx" column="sfyx" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        bh,sid,name,
+        school,rxnf,myclass,
+        national,sex,birthday,
+        lsjy,mother,father,
+        telephone,telephone1,address,
+        djr,djrq,sfyx
+    </sql>
+    <select id="selectBySid" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from stu_info
+        where
+        sid = #{sid,jdbcType=VARCHAR}
+    </select>
+</mapper>

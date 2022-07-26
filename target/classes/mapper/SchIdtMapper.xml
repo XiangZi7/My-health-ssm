@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yxcr.mapper.SchIdtMapper">
+
+    <resultMap id="BaseResultMap" type="com.yxcr.pojo.SchIdt">
+            <id property="bh" column="bh" jdbcType="INTEGER"/>
+            <result property="sdId" column="sd_id" jdbcType="CHAR"/>
+            <result property="sdName" column="sd_name" jdbcType="VARCHAR"/>
+            <result property="sdIndex" column="sd_index" jdbcType="INTEGER"/>
+            <result property="address" column="address" jdbcType="VARCHAR"/>
+            <result property="linkman" column="linkman" jdbcType="VARCHAR"/>
+            <result property="telephone" column="telephone" jdbcType="VARCHAR"/>
+            <result property="sfyx" column="sfyx" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        bh,sd_id,sd_name,
+        sd_index,address,linkman,
+        telephone,sfyx
+    </sql>
+    <select id="selectBySdId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sch_idt
+        where
+        sd_id = #{sdId,jdbcType=VARCHAR}
+    </select>
+</mapper>
